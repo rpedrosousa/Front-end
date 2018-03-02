@@ -9,13 +9,26 @@
 <body>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <div id="app">
-        <h1>{{ nome }}</h1>
+        <h1>{{ nome+ " " + hue}}</h1><h1>{{ idade +" " + idade1 +" "+ idade2 }}</h1>
+        <input type="text" v-on:input="alteraNome">
+        <a v-bind:href="hiperlink">no pedo</a>
     </div>
     <script>
         new Vue({
             el: '#app',
             data: {
-                nome: "Olá eijerosfbdighçfod"
+                nome: "Olá poncha",
+                idade: 'Vanessa',
+                idade1: 12,
+                idade2: 'anos',
+                hue: 'quero te conhecer (no pedo)',
+                hiperlink: 'http://i0.kym-cdn.com/photos/images/facebook/000/815/652/694.jpg'
+
+            },
+            methods: {
+                alteraNome: function(event){
+                    this.nome=event.target.value
+                }
             }
         })
     </script>
