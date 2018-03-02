@@ -16,6 +16,7 @@
                 <p>{{imagem}}</p>
             </div>
         <input type="text" v-on:input="alteraNome "value="Coloque o nome...">
+        <input type="text" v-on:input="alteraIdade "value="Coloque a idade...">
         
         
 <img src="" alt="">
@@ -25,8 +26,8 @@
             el:'#exercicio',
             data: {
                 programa:"Nome: ",
-                nome: "asdf",
-                idade: 18,
+                nome: "Exemplo",
+                idade: 0,
                 idade1: 'anos',
                 triplica: 'Sua idade Triplicada: ',
                 imagem: '<img src="https://res.cloudinary.com/teepublic/image/private/s--q3CJndpF--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1515227040/production/designs/2258222_3.jpg" style="width:100px;height:100px" alt="">'
@@ -39,6 +40,9 @@
                 
                 alteraNome: function(event){
                     this.nome=event.target.value
+                },
+                alteraIdade: function(event){
+                    this.idade=event.target.value
                 }
             
             }
