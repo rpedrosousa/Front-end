@@ -11,18 +11,16 @@
 <body>
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
     <div id="exercicio2">
-        <!-- 1) Exibir um alerta quando o botão for pressionado -->
         <div>
-            <button>Alerta!!!</button>
+            <button v-on:click="alerta()">Alerta</button>
+            
         </div>
-        <!-- 2) Quando uma tecla for pressiona guardar o seu valor numa variável (obs: usar event.target.value para obter valor) -->
         <div>
-            <input type="text">
-            <p>{{ valor }}</p>
+            <p>{{ nome }}</p>
+            <input type="text" v-on:input="alteraNome "value="Coloque o nome...">  
         </div>
-        <!-- Ajustar o exercício anterior para guardar o valor apenas quando pressionado "enter" -->
         <div>
-            <input type="text">
+            <input type="text" v-on:keypress="press" value="dalhe gas..">
             <p>{{ valor }}</p>
         </div>
     </div>
@@ -30,7 +28,22 @@
         new Vue({
             el: '#exercicio2',
             data: {
-                valor: ''
+                nome: 'Exemplo: ',
+                valor: 'As'
+            },
+            methods: {
+                alerta: function(){
+                    return alert("SEU PC FOI HACKEADO")
+                },
+                
+                alteraNome: function(event){
+                    this.nome=event.target.value
+                },
+                press: function(event){
+                    if(event.keyCode===13){
+                        this.valor=event.target.value
+                    }
+                }
             }
         });
     </script>
