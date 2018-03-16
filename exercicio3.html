@@ -44,12 +44,16 @@
                 limpeza: function () {
                     setTimeout(function(){document.getElementById("limpa").value="";},5000);
                     setTimeout(function(){valor.getElementById("limpa2").value=0;},1000);
+                }   
+            },
+            watch: {
+                valor: function (tempo) {
+                    var dados = this;
+                    setTimeout(function () {
+                        dados.valor = 0
+                    }, 2000)
                 }
-                
             }
-
-
-        
         });
     </script>
 </body>
