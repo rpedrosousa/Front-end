@@ -12,7 +12,7 @@
     <div id="app">
         <section class="row">
             <div class="small-6 columns">
-                <h1 class="text-center">YOU</h1>
+                <h1 class="text-center">Palito</h1>
                 <div class="healthbar">
                     <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;":style="{width: playerHealth + '%'}">
                         {{playerHealth}}
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="small-6 columns">
-                <h1 class="text-center">MONSTER</h1>
+                <h1 class="text-center">Sion</h1>
                 <div class="healthbar">
                     <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;":style="{width: monsterHealth + '%'}">
                         {{monsterHealth}}
@@ -33,21 +33,19 @@
                 <button id="start-game" @click="gameIsRunning = true">START NEW GAME</button>
             </div>
         </section>
+        
         <section class="row controls" v-else>
             <div class="small-12 columns">
-                <button id="attack" @click="attack" @click="monsterandom">ATTACK</button>
-                <button id="special-attack" @click="specialAttack" @click="monsterandom">SPECIAL ATTACK</button>
-                <button id="heal" @click="heal" @click="monsterandom">HEAL</button>
+                <button id="attack" @click="attack">ATTACK</button>
+                <button id="special-attack" @click="specialAttack" @click="monsterandom">SP.ECIAL ATTACK</button>
+                <button id="heal" @click="heal">HEAL</button>
                 <button id="give-up" @click="giveUp">GIVE UP</button>
             </div>
         </section>
         <section class="row log" v-if="turns.length >0">
             <div class="small-12 columns">
                 <ul>
-                    <li v-for="turn in turns":class="{'player-turn':turn.isPlayer,'monster-turn':turn.isMonster}">
-                        {{turn.text}}
-                    </li>
-                    <li v-for="turn in turns":class="{'monster-turn':turn.isMonster,'player-turn':turn.isPlayer}">
+                    <li v-for="turn in turns":class="{'player-turn':turn.isPlayer,'monster-turn': !turn.isPlayer}" :key="turn.id">
                         {{turn.text}}
                     </li>
                 </ul>
